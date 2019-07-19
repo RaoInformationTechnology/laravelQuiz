@@ -4,45 +4,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @yield('custom-meta-tags')
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+​
     <title>{{ config('app.name', 'QuizTime') }}</title>
-
-    <!-- Scripts -->
-
-    <!-- Fonts -->
+​
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" sizes="114x114"  href="{{ asset('favicon.ico') }}">
-    <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link rel="stylesheet"  href="{{ asset('css/responsive-tabs.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+​
+    <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <!-- <script src="{{ asset('js/jquery.min.js') }}"></script> -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="{{ asset('js/jquery.responsiveTabs.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
-
-    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 </head>
 <style type="text/css">
     a{
         text-decoration: none !important;
     }
-
+​
     .dropdown-item:hover {
         background-color: #fff!important;
     }
-
-
 </style>
-<!-- Styles -->
-
+​
 <script>
     window.Laravel = <?php echo json_encode([
         'csrfToken' => csrf_token(),
@@ -69,10 +58,10 @@
             $(".page-min-height").css({"min-height": pageMinHeight,"padding-top": headerHeight + 40});
         });
         $('.startButton').hover(
-         function(){ $(this).addClass('btn-outline-primary') },
-         function(){ $(this).removeClass('btn-primary') }
-         )
-
+           function(){ $(this).addClass('btn-outline-primary') },
+           function(){ $(this).removeClass('btn-primary') }
+           )
+​
         $(window).on('load resize', function(){
             var headerHeight = $('header').height();
             $('.banner_content .col-lg-7, .banner_content .col-lg-5').css({'padding-top': headerHeight});
@@ -143,16 +132,20 @@
                                         <a href="{{ url('/userResults') }}">My Results</a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link" id="navbarDropdown1" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <i class="fa fa-caret-down"></i></a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                                            <li><a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();" style="color: black;border: none">Log out</a></li>
+                                        <a class="nav-link " id="navbarDropdown1" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} 
+                                            <i class="fa fa-caret-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1" style="min-width: auto!important">
+                                            <li>
+                                                <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();" style="color: black;border: none">Log out</a>
+                                            </li>
                                         </ul>
                                     </li>
-
+​
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
-                                    </form>
+                                    </form> 
                                     @endif
                                 </ul>
                             </nav>
@@ -164,7 +157,7 @@
         @yield('content')
         <footer id="footer">Copyright &copy; <strong>{{Date('Y')}}</strong> Quizophile. All Rights Reserved.</footer>
         <a class="back_to_top" href="javascript:void(0);">
-            <i class="fa fa-chevron-up" aria-hidden="true"> </i>
+            <i class="fa fa-chevron-up" aria-hidden="true"></i>
         </a>
     </div>
 </body>
